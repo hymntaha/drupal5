@@ -1,0 +1,39 @@
+{#
+/**
+ * @file
+ * Theme override to display a region.
+ *
+ * Available variables:
+ * - content: The content for this region, typically blocks.
+ * - attributes: HTML attributes for the region div.
+ * - region: The name of the region variable as defined in the theme's
+ *   .info.yml file.
+ *
+ * @ingroup templates
+ *
+ * @see template_preprocess_region()
+ */
+#}
+{%
+  set classes = [
+    'region',
+    'region-' ~ region|clean_class,
+  ]
+%}
+{% if content %}
+  <div{{ attributes.addClass(classes) }}>
+    <div class="row">
+        {{ content }}
+      <div class="col-lg-6">
+        <ul class="nav nav-credits">
+          <li>
+            <span>&copy; 2017 St. Andrew's School Delaware</span>
+          </li>
+          <li>
+            <span>Website Design by <a href="http://avatarnewyork.com/work" target="_blank">Avatar New York</a></span>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+{% endif %}

@@ -1,0 +1,28 @@
+<p>
+    <a href="/admin/content/identify/item/{{ fields.node_id }}">&lt; Back</a>
+</p>
+
+<h3>Item {{fields.node_id}}:</h3>
+<p>
+    <a href="{{ path('entity.node.canonical', {'node': fields.node_id}) }}">{{ fields.title }}</a>
+</p>
+
+<p>
+    <img style="max-width:500px;height:auto;" src={{ fields.image }} />
+</p>
+
+<h3>Submitted By:</h3>
+<p>{{ fields.name }}</p>
+
+<h3>Email: </h3>
+<p>{{ fields.email }}</p>
+
+<h3>Date: </h3>
+<p>{{ fields.date }}</p>
+
+<h3>Submitted Info: </h3>
+<p>{{ fields.info }}</p>
+
+<p>
+    <a href="/admin/content/identify/item/{{ fields.node_id }}">< Back to submissions for item {{ fields.node_id }}</a>
+</p>

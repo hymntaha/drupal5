@@ -1,0 +1,27 @@
+id: items_keywords
+label: Keywords
+migration_group: items
+source:
+  plugin: items_keywords
+destination:
+  plugin: entity:taxonomy_term
+process:
+  name: txt
+  vid:
+    plugin: default_value
+    default_value: keyword
+  parent:
+    plugin: migration
+    migration: items_keywords
+    source: parent
+  field_synonyms:
+    plugin: migration
+    migration: items_synonyms
+    source: synonym_ids
+migration_dependencies:
+  required:
+    - items_synonyms
+dependencies:
+  enforced:
+    module:
+      - migrate_standrews

@@ -1,0 +1,6 @@
+<div class="result-group">
+    {% for result in search_result %}
+           <h2>{{ result.title }} <a href="{{result.route}}">({{ result.count }} results)</a></h2>
+            {{ result.results }}
+    {% endfor %}
+</div>

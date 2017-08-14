@@ -1,0 +1,5 @@
+name: Advanced Search
+type: module
+description: Advanced search module
+core: 8.x
+package: St.Andrews Archive

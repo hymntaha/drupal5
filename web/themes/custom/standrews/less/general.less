@@ -1,0 +1,120 @@
+h1,
+.h1,
+h2,
+.h2,
+h3,
+.h3,
+h4,
+.h4,
+h5,
+.h5,
+h6,
+.h6{
+  margin-top:0;
+}
+
+h1,
+.h1{
+  text-transform: uppercase;
+}
+
+a{
+  &[target="blank"]{
+    &:after{
+      margin-left:8px;
+      .fa;
+      content: @fa-var-external-link;
+    }
+  }
+
+  &.facebook,
+  &.instagram,
+  &.twitter,
+  &.pinterest{
+    &:before{
+      .fa;
+      margin-right:5px;
+    }
+
+    &:after{
+      content:'';
+      margin:0;
+    }
+  }
+
+  &.facebook{
+    &:before{
+      content: @fa-var-facebook-square;
+    }
+  }
+
+  &.instagram{
+    &:before{
+      content: @fa-var-instagram;
+    }
+  }
+  &.twitter{
+    &:before{
+      content: @fa-var-twitter-square;
+    }
+  }
+  &.pinterest{
+    &:before{
+      content: @fa-var-pinterest-square;
+    }
+  }
+}
+
+hr{
+  border-color: #d0d0d0;
+}
+
+.main-container{
+  padding-top:55px;
+}
+
+.form-horizontal{
+  .form-group{
+    &.form-actions{
+      text-align: right;
+      margin:0;
+
+      .btn{
+        margin-right:0;
+        width:100%;
+
+        @media(min-width:@grid-float-breakpoint){
+          width:auto;
+        }
+      }
+    }
+
+    > label{
+      .make-md-column(3);
+    }
+    > .form-input-wrapper{
+      .make-md-column(9);
+    }
+  }
+}
+
+.btn,
+.form-submit{
+  font-family: @headings-font-family;
+  font-size:13px;
+
+  &:focus{
+    outline:0 !important;
+  }
+}
+
+.contact-form{
+  background-color: @gray-lighter;
+  padding:15px;
+}
+
+.at-resp-share-element{
+  .at-share-btn{
+    margin-bottom:0 !important;
+  }
+}

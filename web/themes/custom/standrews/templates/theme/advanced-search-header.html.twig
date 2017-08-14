@@ -1,0 +1,33 @@
+{{ attach_library('standrews/search-scripts') }}
+{% set ipp_options = [4,8,16,32] %}
+<div class="advanced-search-header clearfix">
+    <div class="pull-left">
+        {% if search_params is not empty %}
+            Your Query:
+            <div class="search-params">
+                {% for key, search_param in search_params %}
+                    <strong>{{ key }}:</strong> {{ search_param }}{% if not loop.last %},{% endif %}
+                {% endfor %}
+            </div>
+        {% endif %}
+        <div class="ipp visible-xs visible-sm">
+            <select name="ipp" class="ipp-select" id="ipp2">
+                {% for ipp_option in ipp_options %}
+                    <option{% if ipp_option == ipp %} selected{% endif %} value="{{ ipp_option }}">{{ ipp_option }}</option>
+                {% endfor %}
+            </select>
+            <label for="ipp2"> results per category</label>
+        </div>
+    </div>
+    <div class="pull-right hidden-xs hidden-sm">
+        <div class="ipp">
+            <label for="ipp">Results per category:</label>
+            <select name="ipp" class="ipp-select" id="ipp">
+                {% for ipp_option in ipp_options %}
+                    <option{% if ipp_option == ipp %} selected{% endif %} value="{{ ipp_option }}">{{ ipp_option }}</option>
+                {% endfor %}
+            </select>
+        </div>
+    </div>
+</div>
+<hr />

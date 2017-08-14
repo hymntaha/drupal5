@@ -1,0 +1,21 @@
+id: items_groups
+label: Groups
+migration_group: items
+source:
+  plugin: items_groups
+destination:
+  plugin: entity:taxonomy_term
+process:
+  name: name
+  vid:
+    plugin: default_value
+    default_value: groups
+  parent:
+    plugin: migration
+    migration: items_groups
+    source: parent
+migration_dependencies: {}
+dependencies:
+  enforced:
+    module:
+      - migrate_standrews

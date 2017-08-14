@@ -1,0 +1,40 @@
+identify_submission:
+  path: '/identify/{node_id}'
+  defaults:
+    _controller: '\Drupal\identify_submission\Controller\IdentifySubmissionController::nodeFields'
+    _title: 'Identify Submission Page'
+  requirements:
+    _permission: 'access content'
+
+identify_submission.admin:
+  path: '/admin/content/identify'
+  defaults:
+    _title: 'Identify'
+    _controller: '\Drupal\identify_submission\Controller\IdentifyAdminController::adminPage'
+    type: 'new'
+  requirements:
+    _permission: 'access identify submission'
+
+identify_submission.submitted_identify_controller_displayThankYou:
+  path: '/thank-you'
+  defaults:
+    _controller: '\Drupal\identify_submission\Controller\SubmittedIdentifyController::displayThankYou'
+    _title: 'Thank You'
+  requirements:
+    _permission: 'access content'
+
+identify_submission.view_submission_controller_viewSubmissionPage:
+  path: '/admin/content/identify/item/{node_id}'
+  defaults:
+    _controller: '\Drupal\identify_submission\Controller\ViewSubmissionController::viewSubmissionPage'
+    _title: 'Submitted Information for Item'
+  requirements:
+    _permission: 'access identify submission'
+
+identify_submission.submission_info_controller_infoSubmission:
+  path: '/admin/content/identify/submission/{node_id}'
+  defaults:
+    _controller: '\Drupal\identify_submission\Controller\SubmissionInfoController::infoSubmission'
+    _title: 'Submitted Information'
+  requirements:
+    _permission: 'access identify submission'

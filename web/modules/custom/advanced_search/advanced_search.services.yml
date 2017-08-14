@@ -1,0 +1,4 @@
+services:
+  advanced.search.search.query:
+    class: Drupal\advanced_search\AdvancedSearchQuery
+    arguments: ['@entity.query', '@database']

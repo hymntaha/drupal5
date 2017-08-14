@@ -1,0 +1,11 @@
+item-form:
+  css:
+    base:
+      css/item-form.css: {}
+
+  js:
+    js/item-form.js: {}
+term-form:
+  css:
+    base:
+      css/term-form.css: {}

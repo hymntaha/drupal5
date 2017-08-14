@@ -1,0 +1,25 @@
+<ul>
+{% for tid, term in collection %}
+    <li>
+        <a href="{{ url('entity.taxonomy_term.canonical', {'taxonomy_term': tid}) }}">{{ term.name }}</a>
+        {% if term.children is not empty %}
+            <ul>
+                {% for tid_2, term_2 in term.children %}
+                    <li>
+                    <a href="{{ url('entity.taxonomy_term.canonical', {'taxonomy_term': tid_2}) }}">{{ term_2.name }}</a>
+                    {% if term_2.children is not empty %}
+                        <ul>
+                            {% for tid_3, term_3 in term_2.children %}
+                                <li>
+                                    <a href="{{ url('entity.taxonomy_term.canonical', {'taxonomy_term': tid_3}) }}">{{ term_3.name }}</a>
+                                </li>
+                            {% endfor %}
+                        </ul>
+                    {% endif %}
+                    </li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+    </li>
+{% endfor %}
+</ul>

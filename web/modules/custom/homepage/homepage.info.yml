@@ -1,0 +1,5 @@
+name: Homepage
+type: module
+description: Homepage Functionality
+core: 8.x
+package: St.Andrews Archive

@@ -1,0 +1,5 @@
+name: Identify Submission
+type: module
+description: Submission forms for identified nodes
+core: 8.x
+package: Custom

@@ -1,0 +1,3 @@
+access identify submission:
+  title: 'Access identify submissions'
+  restrict access: TRUE

@@ -1,0 +1,9 @@
+name: Migrate St. Andrews
+type: module
+description: St.Andrews Archive Migration
+core: 8.x
+package: St.Andrews Archive
+dependencies:
+  - migrate
+  - migrate_plus
+  - migrate_tools

@@ -1,0 +1,11 @@
+item.item_terms_admin_controller_terms_count:
+  path: '/admin/content/{taxonomy_vocabulary}'
+  defaults:
+    _controller: '\Drupal\item\Controller\ItemTermsCountAdminController::count'
+    _title_callback: '\Drupal\item\Controller\ItemTermsCountAdminController::getTitle'
+  requirements:
+    _permission: 'administer taxonomy'
+  options:
+    parameters:
+      taxonomy_vocabulary:
+        type: entity:taxonomy_vocabulary

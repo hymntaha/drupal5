@@ -1,0 +1,21 @@
+id: items_collections
+label: Collections
+migration_group: items
+source:
+  plugin: items_collections
+destination:
+  plugin: entity:taxonomy_term
+process:
+  name: name
+  vid:
+    plugin: default_value
+    default_value: collections
+  parent:
+    plugin: migration
+    migration: items_collections
+    source: parent_formatted
+migration_dependencies: {}
+dependencies:
+  enforced:
+    module:
+      - migrate_standrews

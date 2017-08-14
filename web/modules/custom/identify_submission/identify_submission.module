@@ -1,0 +1,25 @@
+<?php
+
+/**
+ * @file
+ * Contains identify_submission.module.
+ */
+
+/**
+ * Implements hook_theme().
+ */
+function identify_submission_theme($existing, $type, $theme, $path) {
+  return [
+    'identify_submission'=>[
+      'variables'=>[
+        'item'=> [],
+        'form'=>[],
+        ]
+      ],
+    'info_view'=>[
+      'variables'=>[
+        'fields'=>[],
+      ]
+    ]
+    ];
+}

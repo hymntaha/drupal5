@@ -1,0 +1,47 @@
+<?php
+
+/**
+ * Implements hook_schema().
+ */
+function identify_submission_schema(){
+  $schema['submissions'] = [
+    'fields' => [
+      'id' => [
+        'type' => 'serial',
+        'unsigned' => true,
+        'not null' => true,
+      ],
+      'name' => [
+        'type' => 'varchar',
+        'length' => 255,
+        'not null' => true,
+      ],
+      'email' => [
+        'type' => 'varchar',
+        'length' => 255,
+        'not null' => true,
+      ],
+      'date' => [
+        'type' => 'int',
+        'length' => 255,
+        'not null' => true,
+      ],
+      'info' => [
+        'type' => 'text',
+        'length'=> 255,
+        'not null' => true,
+      ],
+      'node_id' => [
+        'type' => 'varchar',
+        'length' => 255,
+        'not null' => true,
+      ],
+    ],
+    'primary key' => ['id'],
+    'indexes' => [
+      'name' => ['name'],
+    ],
+  ];
+
+  return $schema;
+}

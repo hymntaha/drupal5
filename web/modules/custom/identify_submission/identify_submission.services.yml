@@ -1,0 +1,9 @@
+services:
+  identify.submission:
+    class: Drupal\identify_submission\IdentifySubmissionStorage
+    arguments: ['@entity.query','@database']
+
+  view.submission:
+    class: Drupal\identify_submission\ViewSubmissionQuery
+    arguments: ['@database']
+

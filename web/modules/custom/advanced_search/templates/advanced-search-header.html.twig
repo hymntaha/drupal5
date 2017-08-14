@@ -1,0 +1,14 @@
+{% set ipp_options = [4,8,16,32] %}
+<div class="advanced-search-header clearfix">
+    <div class="search-params pull-left">
+
+    </div>
+    <div class="ipp pull-right">
+        <label for="ipp">Results per category:</label>
+        <select name="ipp" id="ipp">
+            {% for ipp_option in ipp_options %}
+                <option{% if ipp_option == ipp %} selected{% endif %} value="{{ ipp_option }}">{{ ipp_option }}</option>
+            {% endfor %}
+        </select>
+    </div>
+</div>

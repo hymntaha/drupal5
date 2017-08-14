@@ -1,0 +1,46 @@
+global-styling:
+  css:
+    theme:
+      css/style.css: {}
+
+global-scripts:
+  js:
+    js/viewportsize.min.js: {}
+    js/standrews.js: {}
+
+homepage-scripts:
+  js:
+    js/jQEditRangeSlider-withRuler-min.js: {}
+    js/imagesloaded.pkgd.min.js: {}
+    js/homepage.js: {}
+  dependencies:
+    - core/jquery.ui
+    - core/jquery.ui.widget
+    - core/jquery.ui.mouse
+search-scripts:
+  js:
+    js/URI.min.js: {}
+    js/search.js: {}
+
+bootstrap-scripts:
+  js:
+    bootstrap/js/affix.js: {}
+    bootstrap/js/alert.js: {}
+    bootstrap/js/button.js: {}
+    bootstrap/js/carousel.js: {}
+    bootstrap/js/collapse.js: {}
+    bootstrap/js/dropdown.js: {}
+    bootstrap/js/modal.js: {}
+    bootstrap/js/tooltip.js: {}
+    bootstrap/js/popover.js: {}
+    bootstrap/js/scrollspy.js: {}
+    bootstrap/js/tab.js: {}
+    bootstrap/js/transition.js: {}
+
+add-this-header:
+  js:
+    https://s7.addthis.com/js/250/addthis_widget.js#pub=standrews: {type: external}
+
+add-this:
+  js:
+    https://s7.addthis.com/js/300/addthis_widget.js#pubid=ra-58f8d0eebd90abe4: {type: external}

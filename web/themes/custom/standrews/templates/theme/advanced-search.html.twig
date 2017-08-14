@@ -1,0 +1,25 @@
+<div class="result-group">
+    {% for result in search_result %}
+        <div class="result-group-title">
+            {% if show_all_results_link %}
+                <a href="{{ result.route }}">
+                    <span class="h2">{{ result.title }}<span class="h4">({{ result.count }})</span></span>
+                </a>
+            {% else %}
+                <span class="h2">{{ result.title }}<span class="h4">({{ result.count }})</span></span>
+            {% endif %}
+        </div>
+        <div class="result-group-results">
+            {{ result.results }}
+        </div>
+        <div class="result-group-footer clearfix">
+            {% if show_all_results_link %}
+            <div class="pull-left">
+                <a href="{{ result.route }}">
+                    <strong>See all {{ result.count }} {{ result.title }} results</strong> <i class="fa fa-chevron-right" aria-hidden="true"></i>
+                </a>
+            </div>
+            {% endif %}
+        </div>
+    {% endfor %}
+</div>

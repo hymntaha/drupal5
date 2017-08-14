@@ -1,0 +1,69 @@
+id: item_node
+label: Items
+migration_group: items
+source:
+  plugin: item_node
+destination:
+  plugin: entity:node
+process:
+  type:
+    plugin: default_value
+    default_value: item
+  title: title
+  uid: uid
+  sticky:
+    plugin: default_value
+    default_value: 0
+  field_author_photographer: author
+  field_collection:
+    plugin: migration
+    migration: items_collections
+    source: collection_ids
+  field_date_month: item_date_m
+  field_date_day: item_date_d
+  field_date_year: item_date_y
+  field_decade: decade
+  field_donor: donor
+  field_featured: featured
+  field_featured_text: featured_txt
+  field_groups:
+    plugin: migration
+    migration: items_groups
+    source: group_ids
+  field_identified: identified
+  field_image:
+    plugin: migration
+    migration: item_files
+    source: image_fid
+  field_keywords:
+    plugin: migration
+    migration: items_keywords
+    source: keyword_ids
+  field_language: language
+  field_legacy_id: item_id
+  field_location: location
+  field_media_type: media_type
+  field_new_to_archive: new_to_archive
+  field_notes: notes
+  field_physical_description: physical_desc
+  field_related_items:
+    plugin: migration
+    migration: item_node
+    source: related_item_ids
+  field_restricted_use: restricted_use
+  field_upload_document:
+    plugin: migration
+    migration: item_files
+    source: fid
+  field_value: value
+  field_youtube_link: youtube
+migration_dependencies:
+  required:
+    - items_collections
+    - items_groups
+    - items_keywords
+    - item_files
+dependencies:
+  enforced:
+    module:
+      - migrate_standrews

@@ -1,0 +1,151 @@
+<?php
+
+/**
+ * @file
+ * Contains item.module.
+ */
+
+use Drupal\Core\Entity\Query\QueryInterface;
+use Drupal\Core\Form\FormStateInterface;
+use Drupal\Core\Render\Element;
+use Drupal\Core\Routing\RouteMatchInterface;
+use Drupal\file\FileInterface;
+use Drupal\taxonomy\Entity\Term;
+
+/**
+ * Implements hook_help().
+ */
+function item_help($route_name, RouteMatchInterface $route_match) {
+  switch ($route_name) {
+    // Main module help for the item module.
+    case 'help.page.item':
+      $output = '';
+      $output .= '<h3>' . t('About') . '</h3>';
+      $output .= '<p>' . t('Item functionality') . '</p>';
+      return $output;
+
+    default:
+  }
+}
+
+/**
+ * Implements hook_form_FORM_ID_alter().
+ */
+function item_form_node_item_form_alter(&$form, FormStateInterface $form_state, $form_id) {
+  $form['#attached']['library'][] = 'item/item-form';
+  $form['field_keywords']['widget']['add_more']['#value'] = t('Add another keyword');
+}
+
+/**
+ * Implements hook_form_FORM_ID_alter().
+ */
+function item_form_node_item_edit_form_alter(&$form, FormStateInterface $form_state, $form_id) {
+  $form['#attached']['library'][] = 'item/item-form';
+  $form['field_keywords']['widget']['add_more']['#value'] = t('Add another keyword');
+}
+
+/**
+ * Implements hook_form_FORM_ID_alter().
+ */
+function item_form_taxonomy_term_collections_form_alter(&$form, \Drupal\Core\Form\FormStateInterface $form_state, $form_id) {
+  $form['#attached']['library'][] = 'item/term-form';
+}
+
+/**
+ * Implements hook_entity_update().
+ */
+function item_entity_update(Drupal\Core\Entity\EntityInterface $entity) {
+  if ($entity instanceof \Drupal\node\Entity\Node && $entity->getType() == 'item') {
+    if($image_value = $entity->field_image->getValue()){
+      item_file_move(\Drupal\file\Entity\File::load($image_value[0]['target_id']));
+    }
+    if($upload_value = $entity->field_upload_document->getValue()){
+      item_file_move(\Drupal\file\Entity\File::load($upload_value[0]['target_id']));
+    }
+  }
+}
+
+/**
+ * Implements hook_entity_insert().
+ */
+function item_entity_insert(Drupal\Core\Entity\EntityInterface $entity) {
+  if ($entity instanceof \Drupal\node\Entity\Node && $entity->getType() == 'item') {
+    if($image_value = $entity->field_image->getValue()){
+      item_file_move(\Drupal\file\Entity\File::load($image_value[0]['target_id']));
+    }
+    if($upload_value = $entity->field_upload_document->getValue()){
+      item_file_move(\Drupal\file\Entity\File::load($upload_value[0]['target_id']));
+    }
+  }
+}
+
+/**
+ * @param FileInterface $file
+ */
+function item_file_move($file) {
+  if( strpos($file->getFileUri(),'unprocessed_files') !== false ){
+    file_move($file, 'public://processed_files/'.$file->getFilename());
+  }
+}
+
+/**
+ * Implements hook_form_FORM_ID_alter().
+ */
+function item_form_taxonomy_overview_terms_alter(&$form, FormStateInterface $form_state, $form_id) {
+  /** @var \Drupal\taxonomy\Entity\Vocabulary $vocabulary */
+  $vocabulary = $form_state->getBuildInfo()['args'][0];
+  $valid_vocabularies = [
+    'collections',
+    'keyword',
+    'groups',
+  ];
+
+  if (in_array($vocabulary->id(), $valid_vocabularies)) {
+    $form['terms']['#header'] = [
+      t('Name'),
+      t('Count'),
+      t('Weight'),
+      t('Operations')
+    ];
+
+    foreach (Element::children($form['terms']) as $key) {
+      /** @var Term $term */
+      $term = $form['terms'][$key]['#term'];
+
+      $field_name = '';
+      switch ($vocabulary->id()) {
+        case 'collections':
+          $field_name = 'field_collection';
+          break;
+        case 'keyword':
+          $field_name = 'field_keywords';
+          break;
+        case 'groups':
+          $field_name = 'field_groups';
+          break;
+      }
+
+      /** @var QueryInterface $query */
+      $query = \Drupal::entityQuery('node')
+        ->condition('status', 1)
+        ->condition($field_name, $term->id());
+
+      $result = $query->count()->execute();
+
+      $form['terms'][$key]['count'] = [
+        '#type' => 'link',
+        '#title' => $result,
+        '#url' => $term->urlInfo(),
+      ];
+
+      $weight = $form['terms'][$key]['weight'];
+      $operations = $form['terms'][$key]['operations'];
+
+      unset($form['terms'][$key]['weight'], $form['terms'][$key]['operations']);
+
+      $form['terms'][$key]['weight'] = $weight;
+      $form['terms'][$key]['$operations'] = $operations;
+
+    }
+  }
+}

@@ -1,0 +1,42 @@
+<?php
+
+use Drupal\Core\Form\FormStateInterface;
+
+/**
+ * Implements hook_theme().
+ */
+
+function advanced_search_theme($existing, $type, $theme, $path) {
+  return [
+    'advanced_search'=>[
+      'variables'=>[
+        'search_result'=> [],
+        'show_all_results_link' => FALSE,
+      ]
+    ],
+    'advanced_search_header'=>[
+      'variables' => [
+        'search_params'=> [],
+        'ipp' => 4,
+      ]
+    ],
+    'advanced_search_form' => [
+      'render element' => 'form',
+    ],
+  ];
+}
+
+/**
+ * Implements hook_form_FORM_ID_alter().
+ */
+function advanced_search_form_search_block_form_alter(&$form, FormStateInterface $form_state, $form_id) {
+  $form['#action'] = '/search-results';
+  $form['keys']['#required'] = TRUE;
+
+  $params = \Drupal::request()->query->all();
+  if(isset($params['keys'])){
+    $form['keys']['#default_value'] = $params['keys'];
+  }
+
+  $form['#cache']['contexts'][] = 'url.query_args';
+}

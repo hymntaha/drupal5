@@ -1,0 +1,49 @@
+<ul class="collection-collapse">
+    {% for tid, term in collection %}
+        <li>
+            {% if term.children is empty %}
+                <a href="/search-results/?collection={{ tid }}"><i class="fa fa-plus invisible" aria-hidden="true"></i> {{ term.name }}</a>
+            {% else %}
+                <a href="#collapse-{{ tid }}" data-toggle="collapse" aria-expanded="false"
+                   aria-controls="collapse-{{ tid }}"><i class="fa fa-plus" aria-hidden="true"></i> {{ term.name }}</a>
+            {% endif %}
+            {% if term.children is not empty %}
+                <ul class="collapse" id="collapse-{{ tid }}">
+                    <li class="see-all">
+                        <a href="/search-results/?collection={{ tid }}">
+                            <i class="fa fa-plus invisible" aria-hidden="true"></i> See All Items in {{ term.name }}
+                        </a>
+                    </li>
+                    {% for tid_2, term_2 in term.children %}
+                        <li>
+                            {% if term_2.children is empty %}
+                                <a href="/search-results/?collection={{ tid_2 }}">
+                                    <i class="fa fa-plus invisible" aria-hidden="true"></i> {{ term_2.name }}
+                                </a>
+                            {% else %}
+                                <a href="#collapse-{{ tid_2 }}" data-toggle="collapse" aria-expanded="false"
+                                   aria-controls="collapse-{{ tid_2 }}">
+                                    <i class="fa fa-plus" aria-hidden="true"></i> {{ term_2.name }}
+                                </a>
+                            {% endif %}
+                            {% if term_2.children is not empty %}
+                                <ul class="collapse" id="collapse-{{ tid_2 }}">
+                                    <li class="see-all">
+                                        <a href="/search-results/?collection={{ tid_2 }}">
+                                            <i class="fa fa-plus invisible" aria-hidden="true"></i> See All Items in {{ term_2.name }}
+                                        </a>
+                                    </li>
+                                    {% for tid_3, term_3 in term_2.children %}
+                                        <li>
+                                            <a href="/search-results/?collection={{ tid_3 }}"><i class="fa fa-plus invisible" aria-hidden="true"></i> {{ term_3.name }}</a>
+                                        </li>
+                                    {% endfor %}
+                                </ul>
+                            {% endif %}
+                        </li>
+                    {% endfor %}
+                </ul>
+            {% endif %}
+        </li>
+    {% endfor %}
+</ul>

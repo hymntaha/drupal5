@@ -1,0 +1,95 @@
+{{ attach_library('standrews/homepage-scripts') }}
+<div class="home-welcome-wrapper">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-offset-2 col-md-8">
+                <div class="home-welcome">
+                    {{ welcome }}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container-fluid">
+    <div class="row">
+        <div id="home-left" class="col-md-7">
+            <div class="row visible-md visible-lg">
+                <div class="col-md-12 home-section home-search">
+                    <div class="home-section-content">
+                        <div class="homepage-section-title">Search</div>
+                        <form action="/" id="homepage-search">
+                            <div class="form-group">
+                                <label for="homepage-search">Search the entire collection for:</label>
+                                <div class="input-group">
+                                    <input required type="search" class="form-control" placeholder="Enter search words..."/>
+                                    <span class="input-group-btn">
+                                    <button class="btn-primary btn icon-before">
+                                        <span class="icon glyphicon glyphicon-search" aria-hidden="true"></span>
+                                        Search The Archive
+                                    </button>
+                                </span>
+                                </div>
+                            </div>
+                        </form>
+                        <a href="{{ path('advanced.search') }}">Advanced Search &gt;</a>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12 home-section home-browse">
+                    <div class="home-section-content">
+                        <div class="homepage-section-title">Browse</div>
+                        <div class="homepage-timeline">
+                            <p class="hidden-xs">Use the slider to select the years you want to browse on the timeline below, then click the See Results button.</p>
+                            {{ timeline }}
+                        </div>
+                        {{ collections }}
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="home-right" class="col-md-5">
+            <div class="row">
+                <div class="col-md-12 home-section home-identify">
+                    <div class="home-section-content">
+                        <div class="homepage-section-title">Identify</div>
+                        <div id="identify-carousel" class="carousel slide" data-ride="carousel">
+                            <div class="carousel-inner">
+                                {% for item in identify.items %}
+                                    <div class="item{% if loop.first %} active{% endif %}">
+                                        {{ item }}
+                                    </div>
+                                {% endfor %}
+                            </div>
+                        </div>
+                        <div class="identify-controls">
+                            <div class="row">
+                                <div class="col-xs-4">
+                                    <button id="identify-prev" class="btn btn-link">&lt; Prev</button>
+                                </div>
+                                <div class="col-xs-4 text-center">
+                                    <button id="identify-pause" class="btn btn-link">Pause</button>
+                                    <button id="identify-resume" class="btn btn-link hidden">Resume</button>
+                                </div>
+                                <div class="col-xs-4 text-right">
+                                    <button id="identify-next" class="btn btn-link">Next &gt;</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="text-right">
+                            <button id="identify-submit" class="btn btn-default"><span class="fa fa-lg fa-info-circle"></span> Identify Above Photo</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12 home-section home-featured-new">
+                    <div class="home-section-content">
+                        {{ new }}
+                        {{ featured }}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

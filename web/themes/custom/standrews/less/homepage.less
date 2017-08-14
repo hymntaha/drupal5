@@ -1,0 +1,153 @@
+.path-frontpage{
+  h1.page-header{
+    display:none;
+  }
+
+  .main-container{
+    padding-top:0;
+  }
+
+  .footer-wrapper{
+    margin-top:0;
+  }
+
+  @media(min-width:@grid-float-breakpoint){
+    .top-bar-wrapper{
+      display:none;
+    }
+  }
+}
+
+.home-welcome-wrapper{
+  padding:60px 0 30px 0;
+  background-color: #f1e9d5;
+}
+
+.home-welcome{
+  text-align: center;
+  font-family: @headings-font-family;
+
+  h2,
+  p{
+    margin-bottom:30px;
+  }
+
+  a{
+    font-size:13px;
+  }
+
+  > p{
+    &:last-child{
+      margin-bottom:0;
+    }
+  }
+}
+
+.home-section{
+  border-bottom:1px solid #76949e;
+  margin-bottom:2px;
+}
+
+.homepage-section-title{
+  font-size:28px;
+  text-transform: uppercase;
+  font-family: @headings-font-family;
+  margin-bottom:20px;
+}
+
+.home-section-content{
+  padding:30px 15px;
+
+  @media(max-width:@grid-float-breakpoint){
+    max-width:100% !important;
+  }
+
+  @media(min-width:@grid-float-breakpoint){
+    position: relative;
+    visibility: hidden;
+  }
+}
+
+.home-search{
+  background-color: @brand-info;
+}
+
+.home-browse{
+  background-color: @brand-success;
+}
+
+.home-search,
+.home-browse{
+  @media(min-width:@grid-float-breakpoint){
+    border-right:1px solid #fff;
+  }
+}
+
+.home-identify,
+.home-featured-new{
+  > .home-section-content{
+    .block-title{
+      padding-bottom:20px;
+      border-bottom:1px solid #d0d0d0;
+      margin-bottom:20px;
+    }
+  }
+}
+
+.block-homepage-collection-block{
+  .block-title{
+    margin-bottom:20px;
+  }
+}
+
+.home-identify{
+  background-color: #eee;
+  border-bottom: 1px solid #dedede;
+
+  .homepage-section-title{
+    margin-bottom: 20px;
+  }
+}
+
+.home-featured-new{
+  border-bottom:0;
+}
+
+#homepage-search{
+  margin-bottom:24px;
+
+  .form-control,
+  button{
+    border:3px solid #fff;
+    box-shadow:none;
+  }
+
+  button{
+    padding-top:8px;
+    padding-bottom:8px;
+    line-height:23px;
+  }
+}
+
+.homepage-timeline{
+  margin-bottom:38px;
+
+  > p{
+    max-width:450px;
+  }
+
+  #homepage-timeline-form{
+    margin-top:40px;
+
+    > .form-item{
+      .visible-xs;
+    }
+
+    .form-actions{
+      .btn{
+        margin-right:0;
+      }
+    }
+  }
+}
+

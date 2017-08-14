@@ -1,0 +1,115 @@
+.item{
+  &.teaser,
+  &.search-result{
+    h2{
+      font-size: 18px;
+      font-family: @font-family-base;
+      font-weight: bold;
+    }
+
+    .field--name-field-image{
+      margin-bottom:12px;
+    }
+
+    .field--name-field-date-year,
+    .field--name-field-media-type{
+      display:inline-block;
+    }
+
+    .field--name-field-date-year{
+      &:after{
+        content:'-';
+        margin-left:8px;
+        margin-right:4px;
+      }
+    }
+  }
+
+  &.teaser{
+    margin-bottom:40px;
+
+    .field--name-field-image{
+      margin-top:15px;
+      margin-bottom:25px;
+    }
+  }
+
+  &.search-result{
+    padding:15px;
+    background-color: #f3f3f3;
+    border-top:1px solid #d0d0d0;
+    border-bottom:1px solid #d0d0d0;
+
+    h2{
+      margin-bottom:8px;
+    }
+
+    .field--name-field-notes{
+      margin-top:8px;
+    }
+
+    + .search-result{
+      border-top:0;
+    }
+
+    .search-result-content{
+      .make-md-column(12);
+    }
+
+    .field--name-field-image{
+      .make-md-column(3);
+
+      + .search-result-content{
+        .make-md-column(9);
+      }
+    }
+  }
+
+  &.full{
+    .field{
+      margin-bottom:15px;
+    }
+
+    .copyright-information{
+      margin-top:60px;
+    }
+
+    .field--name-field-date-month,
+    .field--name-field-date-day,
+    .field--name-field-date-year{
+      display: inline-block;
+      margin-bottom:0;
+    }
+
+    .full-image,
+    .field--name-field-upload-document{
+      margin-top:55px;
+
+      .fa{
+        font-size:22px;
+        margin-right:5px;
+
+        + span{
+          vertical-align: baseline;
+          display:inline-block;
+        }
+      }
+    }
+
+    .field--name-field-related-items{
+      margin-top:80px;
+
+      .field--label{
+        .h2;
+        font-size:24px;
+      }
+    }
+  }
+  &.carousel{
+    .field--name-field-image{
+      img{
+        margin:0 auto;
+      }
+    }
+  }
+}

@@ -1,0 +1,50 @@
+.submission-form {
+  background-color: #c8d9e1;
+  padding: 15px;
+}
+.identify-container .field--label-inline {
+  margin-bottom: 15px;
+}
+.form-textarea {
+  margin-bottom: 15px;
+}
+.form-text {
+  margin-bottom: 15px;
+}
+.identify-button {
+  float: right;
+  margin-bottom: 15px;
+  margin-top: 30px;
+}
+.next {
+  float: right;
+}
+.views_slideshow_controls_text_ {
+  display: inline;
+}
+.views_slideshow_controls_text {
+  border-top: 1px solid #dedede;
+  border-bottom: 1px solid #dedede;
+  padding: 20px 0px 20px 0px;
+}
+#views_slideshow_controls_text_previous_identify-block_1 {
+  float: left;
+}
+.views_slideshow_controls_text {
+  text-align: center;
+}
+.fa-chevron-left {
+  font-size: 12px;
+}
+.fa-chevron-right {
+  font-size: 12px;
+}
+#views_slideshow_controls_text_previous_identify-block_1 {
+  font-size: 12px;
+}
+#views_slideshow_controls_text_next_identify-block_1 {
+  font-size: 12px;
+}
+#views_slideshow_controls_text_pause_identify-block_1 {
+  font-size: 12px;
+}

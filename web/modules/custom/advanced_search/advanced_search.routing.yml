@@ -1,0 +1,15 @@
+advanced.search:
+  path: '/advanced-search'
+  defaults:
+    _form: '\Drupal\advanced_search\Form\AdvancedSearchForm'
+    _title: 'Advanced Search'
+  requirements:
+    _permission: 'access content'
+
+advanced.search.search_result_controller_result_page:
+  path: '/search-results'
+  defaults:
+    _controller: '\Drupal\advanced_search\Controller\SearchResultController::result_page'
+    _title: 'Search Results'
+  requirements:
+    _permission: 'access content'

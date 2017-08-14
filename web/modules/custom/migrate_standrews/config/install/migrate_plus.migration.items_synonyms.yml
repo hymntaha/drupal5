@@ -1,0 +1,21 @@
+id: items_synonyms
+label: Synonyms
+migration_group: items
+source:
+  plugin: items_synonyms
+destination:
+  plugin: entity:taxonomy_term
+process:
+  name: txt
+  vid:
+    plugin: default_value
+    default_value: synonym
+  parent:
+    plugin: migration
+    migration: items_synonyms
+    source: parent
+migration_dependencies: {}
+dependencies:
+  enforced:
+    module:
+      - migrate_standrews

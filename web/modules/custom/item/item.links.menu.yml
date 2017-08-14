@@ -1,0 +1,17 @@
+item.item_groups_admin_controller_terms_count:
+  title: Groups Count
+  route_name: item.item_terms_admin_controller_terms_count
+  parent: system.admin_content
+  route_parameters: { taxonomy_vocabulary: 'groups' }
+
+item.item_collections_admin_controller_terms_count:
+  title: Collections Count
+  route_name: item.item_terms_admin_controller_terms_count
+  parent: system.admin_content
+  route_parameters: { taxonomy_vocabulary: 'collections' }
+
+item.item_keywords_admin_controller_terms_count:
+  title: Keyword Count
+  route_name: item.item_terms_admin_controller_terms_count
+  parent: system.admin_content
+  route_parameters: { taxonomy_vocabulary: 'keyword' }

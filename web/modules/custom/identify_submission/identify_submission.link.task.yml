@@ -1,0 +1,4 @@
+identify_submission.admin:
+  title: Identify Submission
+  route_name: identify_submission.admin
+  base_route: system.admin_content

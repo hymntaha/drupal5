@@ -1,0 +1,47 @@
+<?php
+
+/**
+ * @file
+ * Contains homepage_collection.module.
+ */
+
+use Drupal\Core\Routing\RouteMatchInterface;
+
+/**
+ * Implements hook_help().
+ */
+function homepage_collection_help($route_name, RouteMatchInterface $route_match) {
+  switch ($route_name) {
+    // Main module help for the homepage_collection module.
+    case 'help.page.homepage_collection':
+      $output = '';
+      $output .= '<h3>' . t('About') . '</h3>';
+      $output .= '<p>' . t('Homepage collection taxonomy block') . '</p>';
+      return $output;
+
+    default:
+  }
+}
+
+/**
+ * Implements hook_theme().
+ */
+function homepage_theme($existing, $type, $theme, $path) {
+  return [
+    'homepage' => [
+      'variables' => [
+        'welcome' => [],
+        'timeline' => [],
+        'collections' => [],
+        'identify' => [],
+        'featured' => [],
+        'new' => [],
+      ]
+    ],
+    'homepage_collection' =>[
+      'variables' => [
+        'collection' => [],
+      ],
+    ],
+  ];
+}
